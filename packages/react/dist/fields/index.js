@@ -251,9 +251,12 @@ import { jsx as jsx11 } from "react/jsx-runtime";
 function DefaultField({
   field,
   control,
+  component,
   ...rest
 }) {
-  return /* @__PURE__ */ jsx11(Field, { field, control, components: defaultComponents, ...rest });
+  const components = defaultComponents;
+  const resolved = component ?? components[field.type] ?? components["text"];
+  return /* @__PURE__ */ jsx11(Field, { field, control, component: resolved, ...rest });
 }
 export {
   CheckboxField,

@@ -47,6 +47,6 @@ declare const defaultComponents: {
     switch: typeof SwitchField;
 };
 
-declare function DefaultField({ field, control, ...rest }: Omit<FieldProps, 'components'>): react.JSX.Element;
+declare function DefaultField({ field, control, component, ...rest }: FieldProps): react.JSX.Element;
 
 export { CheckboxField, DateField, DefaultField, EmailField, type FieldComponentProps, NumberField, PasswordField, RadioField, SelectField, SwitchField, TextAreaField, TextField, defaultComponents };

@@ -251,9 +251,12 @@ var defaultComponents = {
 function DefaultField({
   field,
   control,
+  component,
   ...rest
 }) {
-  return /* @__PURE__ */ _jsxruntime.jsx.call(void 0, _chunkCYMOPAGJcjs.Field, { field, control, components: defaultComponents, ...rest });
+  const components = defaultComponents;
+  const resolved = _nullishCoalesce(_nullishCoalesce(component, () => ( components[field.type])), () => ( components["text"]));
+  return /* @__PURE__ */ _jsxruntime.jsx.call(void 0, _chunkCYMOPAGJcjs.Field, { field, control, component: resolved, ...rest });
 }
 
 
