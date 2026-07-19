@@ -17,13 +17,20 @@ export interface Dependency {
   type: DependencyType;
 }
 
+export type ValidationValue = boolean | number | string | RegExp;
+export type ValidationRule<TValidationValue extends ValidationValue = ValidationValue> = TValidationValue | ValidationValueMessage<TValidationValue>;
+export type ValidationValueMessage<TValidationValue extends ValidationValue = ValidationValue> = {
+  value: TValidationValue;
+  message: string;
+};
+
 export interface ValidationRules {
-  required?: boolean;
-  min?: number;
-  max?: number;
-  minLength?: number;
-  maxLength?: number;
-  pattern?: string | RegExp;
+  required?: string | ValidationRule<boolean>;
+  min?: ValidationRule<number | string>;
+  max?: ValidationRule<number | string>;
+  maxLength?: ValidationRule<number>;
+  minLength?: ValidationRule<number>;
+  pattern?: string | RegExp | ValidationRule<RegExp | string>;
   disabled?: boolean;
   readonly?: boolean;
 }
