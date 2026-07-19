@@ -20,6 +20,9 @@
     "dist",
     "src/form-config.schema.json"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup"
   },
