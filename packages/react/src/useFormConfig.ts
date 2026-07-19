@@ -1,26 +1,21 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import type { UseFormProps } from 'react-hook-form';
-import type { ComponentType } from 'react';
-import {
-  normalizeConfig,
-  type FieldConfig,
-  type FormConfig,
-} from '@form-os/core';
+import { normalizeConfig, type FieldConfig, type FormConfig } from '@form-os/core';
 
-export interface UseFormConfigOptions extends Omit<UseFormProps, 'defaultValues'> {
-  defaultValues?: Record<string, any>;
-  components?: Record<string, ComponentType<any>>;
-}
-
-export function useFormConfig(
-  config: FieldConfig[] | FormConfig,
-  options: UseFormConfigOptions = {}
-) {
-  const { components, ...formOptions } = options;
+export function useFormConfig(config: FieldConfig[] | FormConfig) {
   const normalized = useMemo(() => normalizeConfig(config), [config]);
 
-  const form = useForm(formOptions);
+  const defaultValues = useMemo(
+    () =>
+      Object.fromEntries(
+        normalized.fields
+          .filter((f) => f.defaultValue !== undefined)
+          .map((f) => [f.name, f.defaultValue])
+      ),
+    [normalized.fields]
+  );
 
-  return { ...form, fields: normalized.fields, components };
+  const form = useForm({ defaultValues });
+
+  return { ...form, fields: normalized.fields };
 }

@@ -1,3 +1,9 @@
+export interface FieldTypeMap { }
+
+export type FieldType = keyof FieldTypeMap extends never
+  ? string
+  : keyof FieldTypeMap | (string & {});
+
 export interface Choice {
   label: string;
   value: string;
@@ -24,7 +30,7 @@ export interface ValidationRules {
 
 export interface FieldConfig {
   name: string;
-  type: string;
+  type: FieldType;
   label?: string;
   description?: string;
   placeholder?: string;

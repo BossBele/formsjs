@@ -51,27 +51,54 @@ const config: FormConfig = {
 
 ## Use with React
 
+Wrap your form with `FormFieldsProvider` to register components globally, then render each field without repeating the component prop:
+
 ```tsx
-import { useFormConfig, Field } from '@form-os/react';
+import { useFormConfig, Field, FormFieldsProvider } from '@form-os/react';
 import { TextField } from '@form-os/react/fields';
+
+const components = { text: TextField, email: TextField };
 
 function MyForm() {
   const { handleSubmit, fields, control } = useFormConfig(config);
 
   return (
-    <form onSubmit={handleSubmit(console.log)}>
-      {fields.map((field) => (
-        <Field
-          key={field.name}
-          field={field}
-          control={control}
-          component={TextField}
-        />
-      ))}
-      <button type="submit">Send</button>
-    </form>
+    <FormFieldsProvider components={components}>
+      <form onSubmit={handleSubmit(console.log)}>
+        {fields.map((field) => (
+          <Field key={field.name} field={field} control={control} />
+        ))}
+        <button type="submit">Send</button>
+      </form>
+    </FormFieldsProvider>
   );
 }
+```
+
+Pass `component` on a single `Field` to override the context component for that field.
+
+## Add custom field types
+
+Augment `FieldTypeMap` so TypeScript enforces your custom types:
+
+```ts
+// types/form-os.d.ts
+import '@form-os/core';
+
+declare module '@form-os/core' {
+  interface FieldTypeMap {
+    'date-picker': {};
+    'rich-text': { toolbar?: string[] };
+  }
+}
+```
+
+Then register a component for each in `FormFieldsProvider`:
+
+```tsx
+import { DatePickerField } from './fields/DatePickerField';
+
+const components = { text: TextField, 'date-picker': DatePickerField };
 ```
 
 ## Use the `useField` hook directly
