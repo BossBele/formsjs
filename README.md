@@ -1,26 +1,26 @@
-# formsjs
+# jsforms
 
 A small, cross-framework form config library.
 
-- **`@formsjs/core`** — dependency-free config parser, dependency engine, and validation helpers.
-- **`@formsjs/react`** — `react-hook-form` adapter with tree-shakeable field components.
-- **`@formsjs/schema`** — JSON Schema and TypeScript types for form configs.
-- **`@formsjs/svelte`** — placeholder for a future Svelte adapter.
+- **`@jsforms/core`** — dependency-free config parser, dependency engine, and validation helpers.
+- **`@jsforms/react`** — `react-hook-form` adapter with tree-shakeable field components.
+- **`@jsforms/schema`** — JSON Schema and TypeScript types for form configs.
+- **`@jsforms/svelte`** — placeholder for a future Svelte adapter.
 
 ## Install
 
 ```bash
-pnpm add @formsjs/core @formsjs/react react-hook-form
+pnpm add @jsforms/core @jsforms/react react-hook-form
 # optional
-pnpm add @formsjs/schema
+pnpm add @jsforms/schema
 ```
 
-React and `react-hook-form` are peer dependencies of `@formsjs/react`.
+React and `react-hook-form` are peer dependencies of `@jsforms/react`.
 
 ## Define a form config
 
 ```ts
-import type { FormConfig } from '@formsjs/core';
+import type { FormConfig } from '@jsforms/core';
 
 const config: FormConfig = {
   title: 'Contact',
@@ -52,8 +52,8 @@ const config: FormConfig = {
 ## Use with React
 
 ```tsx
-import { FormProvider } from '@formsjs/react';
-import { DefaultField, useFormConfig } from '@formsjs/react/fields';
+import { FormProvider } from '@jsforms/react';
+import { DefaultField, useFormConfig } from '@jsforms/react/fields';
 
 function MyForm() {
   const { handleSubmit, fields, ...form } = useFormConfig(config);
@@ -76,8 +76,8 @@ function MyForm() {
 ## Custom field components
 
 ```tsx
-import { Field, useFormConfig } from '@formsjs/react';
-import { TextField, defaultComponents } from '@formsjs/react/fields';
+import { Field, useFormConfig } from '@jsforms/react';
+import { TextField, defaultComponents } from '@jsforms/react/fields';
 
 const components = {
   ...defaultComponents,
@@ -96,7 +96,7 @@ const components = {
 ## Use the core without React
 
 ```ts
-import { normalizeConfig, createDefaultValues, getFieldState } from '@formsjs/core';
+import { normalizeConfig, createDefaultValues, getFieldState } from '@jsforms/core';
 
 const { fields } = normalizeConfig(config);
 const defaults = createDefaultValues(fields);
@@ -107,7 +107,7 @@ const state = getFieldState(fields[0], defaults);
 ## Validate against the JSON schema
 
 ```ts
-import { schema } from '@formsjs/schema';
+import { schema } from '@jsforms/schema';
 import Ajv from 'ajv';
 
 const ajv = new Ajv();

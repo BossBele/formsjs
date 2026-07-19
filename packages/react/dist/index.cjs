@@ -9,7 +9,7 @@ var _reacthookform = require('react-hook-form');
 
 
 
-var _core = require('@formsjs/core');
+var _core = require('@jsforms/core');
 function useFormConfig(config, options = {}) {
   const { components, resolver, ...formOptions } = options;
   const normalized = _react.useMemo.call(void 0, () => _core.normalizeConfig.call(void 0, config), [config]);

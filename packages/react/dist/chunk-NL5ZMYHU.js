@@ -6,7 +6,7 @@ import {
   getValidationRules,
   coercePattern,
   getDefaultValue
-} from "@formsjs/core";
+} from "@jsforms/core";
 import { jsx } from "react/jsx-runtime";
 function Field({ field, components, ...rest }) {
   const ctx = useFormContext();

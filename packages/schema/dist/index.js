@@ -1,9 +1,9 @@
 // src/form-config.schema.json
 var form_config_schema_default = {
   $schema: "http://json-schema.org/draft-07/schema#",
-  $id: "https://formsjs.dev/form-config.schema.json",
-  title: "FormsJS Form Config",
-  description: "Schema for a FormsJS form configuration.",
+  $id: "https://jsforms.dev/form-config.schema.json",
+  title: "JSForms Form Config",
+  description: "Schema for a JSForms form configuration.",
   type: "object",
   required: [
     "fields"

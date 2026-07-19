@@ -9,7 +9,7 @@ import {
   normalizeConfig,
   createDefaultValues,
   getFieldState
-} from "@formsjs/core";
+} from "@jsforms/core";
 function useFormConfig(config, options = {}) {
   const { components, resolver, ...formOptions } = options;
   const normalized = useMemo(() => normalizeConfig(config), [config]);

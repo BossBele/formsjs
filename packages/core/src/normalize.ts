@@ -18,7 +18,7 @@ export function normalizeConfig(
     }
   }
   throw new Error(
-    'formsjs: config must be a FieldConfig[] or { fields: FieldConfig[] }'
+    'jsforms: config must be a FieldConfig[] or { fields: FieldConfig[] }'
   );
 }
 

@@ -1,7 +1,7 @@
 import * as react_hook_form from 'react-hook-form';
 export { FormProvider, useFormContext } from 'react-hook-form';
-import * as _formsjs_core from '@formsjs/core';
-import { FieldConfig, FormConfig } from '@formsjs/core';
+import * as _jsforms_core from '@jsforms/core';
+import { FieldConfig, FormConfig } from '@jsforms/core';
 import { ComponentType } from 'react';
 export { a as Field, F as FieldProps } from './Field-BNYW3z7J.js';
 
@@ -14,7 +14,7 @@ declare function useFormConfig(config: FieldConfig[] | FormConfig, options?: Use
     fields: FieldConfig[];
     fieldStates: {
         field: FieldConfig;
-        state: _formsjs_core.FieldState;
+        state: _jsforms_core.FieldState;
     }[];
     components: Record<string, ComponentType<any>> | undefined;
     watch: react_hook_form.UseFormWatch<Record<string, any>>;

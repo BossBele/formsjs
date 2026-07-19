@@ -22,7 +22,7 @@ describe('core', () => {
   });
 
   it('throws on invalid config', () => {
-    expect(() => normalizeConfig({})).toThrow('formsjs: config must be');
+    expect(() => normalizeConfig({})).toThrow('jsforms: config must be');
   });
 
   it('creates default values', () => {

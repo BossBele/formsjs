@@ -47,7 +47,7 @@ function normalizeConfig(config) {
     }
   }
   throw new Error(
-    "formsjs: config must be a FieldConfig[] or { fields: FieldConfig[] }"
+    "jsforms: config must be a FieldConfig[] or { fields: FieldConfig[] }"
   );
 }
 function getDefaultValue(field) {

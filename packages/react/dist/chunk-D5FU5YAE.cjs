@@ -6,7 +6,7 @@ var _reacthookform = require('react-hook-form');
 
 
 
-var _core = require('@formsjs/core');
+var _core = require('@jsforms/core');
 var _jsxruntime = require('react/jsx-runtime');
 function Field({ field, components, ...rest }) {
   const ctx = _reacthookform.useFormContext.call(void 0, );

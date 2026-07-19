@@ -1,5 +1,5 @@
 {
-  "name": "@formsjs/core",
+  "name": "@jsforms/core",
   "version": "0.1.0",
   "type": "module",
   "sideEffects": false,

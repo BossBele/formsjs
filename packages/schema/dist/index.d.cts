@@ -1,7 +1,7 @@
 var $schema = "http://json-schema.org/draft-07/schema#";
-var $id = "https://formsjs.dev/form-config.schema.json";
-var title = "FormsJS Form Config";
-var description = "Schema for a FormsJS form configuration.";
+var $id = "https://jsforms.dev/form-config.schema.json";
+var title = "JSForms Form Config";
+var description = "Schema for a JSForms form configuration.";
 var type = "object";
 var required = [
 	"fields"
@@ -149,40 +149,40 @@ var formConfig_schema = {
 };
 
 interface Choice {
-    label: string;
-    value: string;
+	label: string;
+	value: string;
 }
 type DependencyType = 'hidden' | 'show' | 'required' | 'disabled';
 interface Dependency {
-    name: string;
-    value: any;
-    type: DependencyType;
+	name: string;
+	value: any;
+	type: DependencyType;
 }
 interface ValidationRules {
-    required?: boolean;
-    min?: number;
-    max?: number;
-    minLength?: number;
-    maxLength?: number;
-    pattern?: string | RegExp;
+	required?: boolean;
+	min?: number;
+	max?: number;
+	minLength?: number;
+	maxLength?: number;
+	pattern?: string | RegExp;
 }
 interface FieldConfig {
-    name: string;
-    type: string;
-    label?: string;
-    description?: string;
-    placeholder?: string;
-    defaultValue?: any;
-    dependencies?: Dependency[];
-    rules?: ValidationRules;
-    options?: Choice[];
-    props?: Record<string, any>;
+	name: string;
+	type: string;
+	label?: string;
+	description?: string;
+	placeholder?: string;
+	defaultValue?: any;
+	dependencies?: Dependency[];
+	rules?: ValidationRules;
+	options?: Choice[];
+	props?: Record<string, any>;
 }
 interface FormConfig {
-    id?: string;
-    title?: string;
-    submitLabel?: string;
-    fields: FieldConfig[];
+	id?: string;
+	title?: string;
+	submitLabel?: string;
+	fields: FieldConfig[];
 }
 
 export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FormConfig, type ValidationRules, formConfig_schema as schema };
