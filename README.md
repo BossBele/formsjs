@@ -53,22 +53,19 @@ const config: FormConfig = {
 
 ```tsx
 import { useFormConfig, Field } from '@form-os/react';
-import { defaultComponents } from '@form-os/react/fields';
+import { TextField } from '@form-os/react/fields';
 
 function MyForm() {
-  const { handleSubmit, fields, control, values } = useFormConfig(config);
-
-  const onSubmit = (data: any) => console.log(data);
+  const { handleSubmit, fields, control } = useFormConfig(config);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(console.log)}>
       {fields.map((field) => (
         <Field
           key={field.name}
           field={field}
           control={control}
-          values={values}
-          components={defaultComponents}
+          component={TextField}
         />
       ))}
       <button type="submit">Send</button>
@@ -77,29 +74,53 @@ function MyForm() {
 }
 ```
 
+## Use the `useField` hook directly
+
+```tsx
+import { useField } from '@form-os/react';
+import type { Control } from '@form-os/react';
+
+function MyField({ field, control }: { field: FieldConfig; control: Control }) {
+  const { field: f, fieldState, state } = useField(field, control);
+
+  if (!state.visible) return null;
+
+  return (
+    <div>
+      <label>{field.label}</label>
+      <input
+        {...f}
+        readOnly={state.readonly}
+        aria-invalid={!!fieldState.error}
+      />
+      {fieldState.error && <span>{fieldState.error.message}</span>}
+    </div>
+  );
+}
+```
+
 ## Custom field components
 
 ```tsx
 import { useFormConfig, Field } from '@form-os/react';
-import { TextField, defaultComponents } from '@form-os/react/fields';
+import { TextField } from '@form-os/react/fields';
 
-const components = {
-  ...defaultComponents,
-  text: (props) => (
+function MyTextField(props) {
+  return (
     <div>
       <label>{props.fieldConfig.label}</label>
       <TextField {...props} />
       {props.error && <span>{props.error.message}</span>}
     </div>
-  ),
-};
+  );
+}
 
 function MyForm() {
-  const { handleSubmit, control, values, fields } = useFormConfig(config);
+  const { handleSubmit, control, fields } = useFormConfig(config);
   return (
     <form onSubmit={handleSubmit(console.log)}>
       {fields.map((field) => (
-        <Field key={field.name} field={field} control={control} values={values} components={components} />
+        <Field key={field.name} field={field} control={control} component={MyTextField} />
       ))}
     </form>
   );

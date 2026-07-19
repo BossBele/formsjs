@@ -21,7 +21,6 @@ export function useFormConfig(
   const normalized = useMemo(() => normalizeConfig(config), [config]);
 
   const form = useForm(formOptions);
-  const values = form.watch() as Record<string, any>;
 
-  return { ...form, fields: normalized.fields, values, components };
+  return { ...form, fields: normalized.fields, components };
 }

@@ -3,7 +3,7 @@ export interface Choice {
   value: string;
 }
 
-export type DependencyType = 'hidden' | 'show' | 'required' | 'disabled';
+export type DependencyType = 'hidden' | 'show' | 'required' | 'disabled' | 'readonly';
 
 export interface Dependency {
   name: string;
@@ -18,6 +18,8 @@ export interface ValidationRules {
   minLength?: number;
   maxLength?: number;
   pattern?: string | RegExp;
+  disabled?: boolean;
+  readonly?: boolean;
 }
 
 export interface FieldConfig {
@@ -44,6 +46,7 @@ export interface FieldState {
   visible: boolean;
   required: boolean;
   disabled: boolean;
+  readonly: boolean;
   defaultValue: any;
 }
 

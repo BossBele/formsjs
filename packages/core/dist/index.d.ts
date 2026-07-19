@@ -39,6 +39,7 @@ interface FieldState {
     required: boolean;
     disabled: boolean;
     defaultValue: any;
+    readonly: boolean;
 }
 type FieldRegistry<T> = Record<string, T>;
 
