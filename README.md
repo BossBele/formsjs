@@ -52,23 +52,27 @@ const config: FormConfig = {
 ## Use with React
 
 ```tsx
-import { FormProvider } from '@form-os/react';
-import { DefaultField, useFormConfig } from '@form-os/react/fields';
+import { useFormConfig, Field } from '@form-os/react';
+import { defaultComponents } from '@form-os/react/fields';
 
 function MyForm() {
-  const { handleSubmit, fields, ...form } = useFormConfig(config);
+  const { handleSubmit, fields, control, values } = useFormConfig(config);
 
   const onSubmit = (data: any) => console.log(data);
 
   return (
-    <FormProvider {...form}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {fields.map((field) => (
-          <DefaultField key={field.name} field={field} />
-        ))}
-        <button type="submit">Send</button>
-      </form>
-    </FormProvider>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {fields.map((field) => (
+        <Field
+          key={field.name}
+          field={field}
+          control={control}
+          values={values}
+          components={defaultComponents}
+        />
+      ))}
+      <button type="submit">Send</button>
+    </form>
   );
 }
 ```
@@ -76,7 +80,7 @@ function MyForm() {
 ## Custom field components
 
 ```tsx
-import { Field, useFormConfig } from '@form-os/react';
+import { useFormConfig, Field } from '@form-os/react';
 import { TextField, defaultComponents } from '@form-os/react/fields';
 
 const components = {
@@ -90,17 +94,25 @@ const components = {
   ),
 };
 
-<Field field={config.fields[0]} components={components} />
+function MyForm() {
+  const { handleSubmit, control, values, fields } = useFormConfig(config);
+  return (
+    <form onSubmit={handleSubmit(console.log)}>
+      {fields.map((field) => (
+        <Field key={field.name} field={field} control={control} values={values} components={components} />
+      ))}
+    </form>
+  );
+}
 ```
 
 ## Use the core without React
 
 ```ts
-import { normalizeConfig, createDefaultValues, getFieldState } from '@form-os/core';
+import { normalizeConfig, getFieldState } from '@form-os/core';
 
 const { fields } = normalizeConfig(config);
-const defaults = createDefaultValues(fields);
-const state = getFieldState(fields[0], defaults);
+const state = getFieldState(fields[0], { reason: 'support' });
 // state.visible, state.required, state.disabled, state.defaultValue
 ```
 
