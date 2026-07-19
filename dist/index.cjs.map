@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.ts"],"sourcesContent":["export * from '@form-os/core';\nexport * from '@form-os/react';\nexport { schema } from '@form-os/schema';\n"],"mappings":";;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,0BAAc,0BAAd;AACA,0BAAc,2BADd;AAEA,oBAAuB;","names":[]}

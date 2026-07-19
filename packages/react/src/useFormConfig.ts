@@ -1,8 +1,15 @@
 import { useMemo } from 'react';
-import { useForm } from 'react-hook-form';
+import {
+  useForm,
+  type DefaultValues,
+  type FieldValues,
+  type UseFormReturn,
+} from 'react-hook-form';
 import { normalizeConfig, type FieldConfig, type FormConfig } from '@form-os/core';
 
-export function useFormConfig(config: FieldConfig[] | FormConfig) {
+export function useFormConfig<TFieldValues extends FieldValues = FieldValues>(
+  config: FieldConfig[] | FormConfig
+): UseFormReturn<TFieldValues> & { fields: FieldConfig[] } {
   const normalized = useMemo(() => normalizeConfig(config), [config]);
 
   const defaultValues = useMemo(
@@ -15,8 +22,8 @@ export function useFormConfig(config: FieldConfig[] | FormConfig) {
     [normalized.fields]
   );
 
-  const form = useForm({
-    defaultValues,
+  const form = useForm<TFieldValues>({
+    defaultValues: defaultValues as DefaultValues<TFieldValues>,
     mode: normalized.validationMode,
     reValidateMode: normalized.reValidateMode,
   });
