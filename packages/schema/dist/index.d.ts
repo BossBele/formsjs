@@ -149,40 +149,40 @@ var formConfig_schema = {
 };
 
 interface Choice {
-	label: string;
-	value: string;
+    label: string;
+    value: string;
 }
 type DependencyType = 'hidden' | 'show' | 'required' | 'disabled';
 interface Dependency {
-	name: string;
-	value: any;
-	type: DependencyType;
+    name: string;
+    value: any;
+    type: DependencyType;
 }
 interface ValidationRules {
-	required?: boolean;
-	min?: number;
-	max?: number;
-	minLength?: number;
-	maxLength?: number;
-	pattern?: string | RegExp;
+    required?: boolean;
+    min?: number;
+    max?: number;
+    minLength?: number;
+    maxLength?: number;
+    pattern?: string | RegExp;
 }
 interface FieldConfig {
-	name: string;
-	type: string;
-	label?: string;
-	description?: string;
-	placeholder?: string;
-	defaultValue?: any;
-	dependencies?: Dependency[];
-	rules?: ValidationRules;
-	options?: Choice[];
-	props?: Record<string, any>;
+    name: string;
+    type: string;
+    label?: string;
+    description?: string;
+    placeholder?: string;
+    defaultValue?: any;
+    dependencies?: Dependency[];
+    rules?: ValidationRules;
+    options?: Choice[];
+    props?: Record<string, any>;
 }
 interface FormConfig {
-	id?: string;
-	title?: string;
-	submitLabel?: string;
-	fields: FieldConfig[];
+    id?: string;
+    title?: string;
+    submitLabel?: string;
+    fields: FieldConfig[];
 }
 
 export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FormConfig, type ValidationRules, formConfig_schema as schema };

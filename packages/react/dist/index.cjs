@@ -1,6 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true});
 
-var _chunkD5FU5YAEcjs = require('./chunk-D5FU5YAE.cjs');
+var _chunkDIEL6H2Dcjs = require('./chunk-DIEL6H2D.cjs');
 
 // src/useFormConfig.ts
 var _react = require('react');
@@ -40,5 +40,5 @@ function useFormConfig(config, options = {}) {
 
 
 
-exports.Field = _chunkD5FU5YAEcjs.Field; exports.FormProvider = _reacthookform.FormProvider; exports.useFormConfig = useFormConfig; exports.useFormContext = _reacthookform.useFormContext;
+exports.Field = _chunkDIEL6H2Dcjs.Field; exports.FormProvider = _reacthookform.FormProvider; exports.useFormConfig = useFormConfig; exports.useFormContext = _reacthookform.useFormContext;
 //# sourceMappingURL=index.cjs.map

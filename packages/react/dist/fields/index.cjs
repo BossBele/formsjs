@@ -1,6 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _nullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } } function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }
 
-var _chunkD5FU5YAEcjs = require('../chunk-D5FU5YAE.cjs');
+var _chunkDIEL6H2Dcjs = require('../chunk-DIEL6H2D.cjs');
 
 // src/fields/TextField.tsx
 var _jsxruntime = require('react/jsx-runtime');
@@ -252,7 +252,7 @@ function DefaultField({
   field,
   ...rest
 }) {
-  return /* @__PURE__ */ _jsxruntime.jsx.call(void 0, _chunkD5FU5YAEcjs.Field, { field, components: defaultComponents, ...rest });
+  return /* @__PURE__ */ _jsxruntime.jsx.call(void 0, _chunkDIEL6H2Dcjs.Field, { field, components: defaultComponents, ...rest });
 }
 
 

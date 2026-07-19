@@ -3,7 +3,7 @@ export { FormProvider, useFormContext } from 'react-hook-form';
 import * as _jsforms_core from '@jsforms/core';
 import { FieldConfig, FormConfig } from '@jsforms/core';
 import { ComponentType } from 'react';
-export { a as Field, F as FieldProps } from './Field-BNYW3z7J.js';
+export { a as Field, F as FieldProps } from './Field-pDurpCIr.js';
 
 interface UseFormConfigOptions {
     components?: Record<string, ComponentType<any>>;
