@@ -2,7 +2,7 @@
   "name": "@form-os/formjs",
   "private": false,
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "build": "pnpm --filter './packages/*' build",
     "test": "vitest run",
