@@ -11,14 +11,12 @@ interface Dependency {
     value: any;
     type: DependencyType;
 }
-
-export type ValidationValue = boolean | number | string | RegExp;
-export type ValidationRule<TValidationValue extends ValidationValue = ValidationValue> = TValidationValue | ValidationValueMessage<TValidationValue>;
-export type ValidationValueMessage<TValidationValue extends ValidationValue = ValidationValue> = {
+type ValidationValue = boolean | number | string | RegExp;
+type ValidationRule<TValidationValue extends ValidationValue = ValidationValue> = TValidationValue | ValidationValueMessage<TValidationValue>;
+type ValidationValueMessage<TValidationValue extends ValidationValue = ValidationValue> = {
     value: TValidationValue;
     message: string;
 };
-
 interface ValidationRules {
     required?: string | ValidationRule<boolean>;
     min?: ValidationRule<number | string>;
@@ -68,4 +66,4 @@ declare function createFieldRegistry<T>(defaults: FieldRegistry<T>, overrides?: 
 declare function getValidationRules(field: FieldConfig): ValidationRules;
 declare function coercePattern(pattern?: string | RegExp): RegExp | undefined;
 
-export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FieldRegistry, type FieldState, type FieldType, type FieldTypeMap, type FormConfig, type ReValidationMode, type ValidationMode, type ValidationRules, coercePattern, createDefaultValues, createFieldRegistry, getDefaultValue, getFieldState, getValidationRules, normalizeConfig };
+export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FieldRegistry, type FieldState, type FieldType, type FieldTypeMap, type FormConfig, type ReValidationMode, type ValidationMode, type ValidationRule, type ValidationRules, type ValidationValue, type ValidationValueMessage, coercePattern, createDefaultValues, createFieldRegistry, getDefaultValue, getFieldState, getValidationRules, normalizeConfig };

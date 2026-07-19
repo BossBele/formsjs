@@ -26,6 +26,12 @@ function TextField({
 
 // src/fields/NumberField.tsx
 import { jsx as jsx2 } from "react/jsx-runtime";
+function getRuleValue(rule) {
+  if (rule && typeof rule === "object" && "value" in rule) {
+    return rule.value;
+  }
+  return rule;
+}
 function NumberField({
   formField,
   fieldConfig,
@@ -39,8 +45,8 @@ function NumberField({
       ref,
       ...field,
       type: "number",
-      min: fieldConfig.rules?.min,
-      max: fieldConfig.rules?.max,
+      min: getRuleValue(fieldConfig.rules?.min),
+      max: getRuleValue(fieldConfig.rules?.max),
       placeholder: fieldConfig.placeholder,
       className,
       ...rest

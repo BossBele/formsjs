@@ -26,6 +26,12 @@ function TextField({
 
 // src/fields/NumberField.tsx
 
+function getRuleValue(rule) {
+  if (rule && typeof rule === "object" && "value" in rule) {
+    return rule.value;
+  }
+  return rule;
+}
 function NumberField({
   formField,
   fieldConfig,
@@ -39,8 +45,8 @@ function NumberField({
       ref,
       ...field,
       type: "number",
-      min: _optionalChain([fieldConfig, 'access', _ => _.rules, 'optionalAccess', _2 => _2.min]),
-      max: _optionalChain([fieldConfig, 'access', _3 => _3.rules, 'optionalAccess', _4 => _4.max]),
+      min: getRuleValue(_optionalChain([fieldConfig, 'access', _ => _.rules, 'optionalAccess', _2 => _2.min])),
+      max: getRuleValue(_optionalChain([fieldConfig, 'access', _3 => _3.rules, 'optionalAccess', _4 => _4.max])),
       placeholder: fieldConfig.placeholder,
       className,
       ...rest
