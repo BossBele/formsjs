@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import type { ComponentType } from 'react';
 import {
   getFieldState,
@@ -16,14 +16,7 @@ export interface FieldProps {
 }
 
 export function Field({ field, components, ...rest }: FieldProps) {
-  const ctx = useFormContext();
-  if (!ctx) {
-    throw new Error(
-      'Field must be rendered inside a FormProvider or passed a control prop'
-    );
-  }
-
-  const control = ctx.control;
+  const control = control;
   const Component = components[field.type] ?? components['text'];
   if (!Component) {
     throw new Error(`No component registered for field type "${field.type}"`);
@@ -39,24 +32,12 @@ export function Field({ field, components, ...rest }: FieldProps) {
     return null;
   }
 
-  const rules = useMemo(() => {
-    const r = getValidationRules(field);
-    return {
-      required: r.required,
-      min: r.min,
-      max: r.max,
-      minLength: r.minLength,
-      maxLength: r.maxLength,
-      pattern: coercePattern(r.pattern),
-    };
-  }, [field]);
-
   return (
     <Controller
       name={field.name}
       control={control}
-      rules={rules}
-      defaultValue={getDefaultValue(field)}
+      rules={field.rules}
+      defaultValue={field.defaultValue}
       render={({ field: f, fieldState }) => (
         <Component
           formField={f}

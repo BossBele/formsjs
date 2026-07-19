@@ -42,7 +42,7 @@ const config: FormConfig = {
       type: 'textarea',
       label: 'Details',
       dependencies: [
-        { name: 'reason', value: 'support', type: 'show' },
+        { type: 'hidden', name: 'reason', value: 'support' },
       ],
     },
   ],
