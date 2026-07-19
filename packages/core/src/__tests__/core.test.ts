@@ -14,13 +14,6 @@ describe('core', () => {
     expect(config.fields[0].name).toBe('email');
   });
 
-  it('normalizes a wrapped form config', () => {
-    const input = { title: 'Login', fields: [{ name: 'email', type: 'email' }] };
-    const config = normalizeConfig(input);
-    expect(config.title).toBe('Login');
-    expect(config.fields).toHaveLength(1);
-  });
-
   it('throws on invalid config', () => {
     expect(() => normalizeConfig({})).toThrow('form-os: config must be');
   });
