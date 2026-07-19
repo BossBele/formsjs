@@ -1,6 +1,6 @@
 {
-  "name": "formjs-monorepo",
-  "private": true,
+  "name": "@form-os",
+  "private": false,
   "type": "module",
   "version": "0.0.0",
   "scripts": {
