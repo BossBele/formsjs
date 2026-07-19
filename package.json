@@ -1,12 +1,13 @@
 {
-  "name": "@form-os",
-  "private": false,
+  "name": "formjs-monorepo",
+  "private": true,
   "type": "module",
   "version": "0.0.0",
   "scripts": {
     "build": "pnpm --filter './packages/*' build",
     "test": "vitest run",
-    "typecheck": "pnpm --filter './packages/*' exec tsc --noEmit"
+    "typecheck": "pnpm --filter './packages/*' exec tsc --noEmit",
+    "publish": "pnpm --filter './packages/*' publish --access public"
   },
   "devDependencies": {
     "@types/node": "^20.12.0",
