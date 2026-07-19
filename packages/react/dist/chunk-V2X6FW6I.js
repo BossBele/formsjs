@@ -2,7 +2,7 @@
 import { useMemo } from "react";
 import { useController, useWatch } from "react-hook-form";
 import { getFieldState } from "@form-os/core";
-function useField(field, control, options = {}) {
+function useField(field, control) {
   const values = useWatch({ control });
   const state = useMemo(
     () => getFieldState(field, values ?? {}),
@@ -11,8 +11,8 @@ function useField(field, control, options = {}) {
   const { field: f, fieldState } = useController({
     name: field.name,
     control,
-    rules: options.rules ?? field.rules,
-    defaultValue: options.defaultValue ?? field.defaultValue,
+    rules: field?.rules,
+    defaultValue: field?.defaultValue,
     disabled: state.disabled
   });
   return { field: f, fieldState, state };
@@ -35,12 +35,11 @@ function Field({
   field,
   control,
   component,
-  rules,
   ...rest
 }) {
   const contextComponents = useFieldComponents();
   const Component = component ?? contextComponents[field.type] ?? contextComponents["text"];
-  const { field: f, fieldState, state } = useField(field, control, { rules });
+  const { field: f, fieldState, state } = useField(field, control);
   if (!state.visible) {
     return null;
   }
@@ -64,4 +63,4 @@ export {
   useFieldComponents,
   Field
 };
-//# sourceMappingURL=chunk-IHVV2WZM.js.map
+//# sourceMappingURL=chunk-V2X6FW6I.js.map

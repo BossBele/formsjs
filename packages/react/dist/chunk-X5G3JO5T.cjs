@@ -1,8 +1,8 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _nullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } }// src/useField.ts
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _nullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } } function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }// src/useField.ts
 var _react = require('react');
 var _reacthookform = require('react-hook-form');
 var _core = require('@form-os/core');
-function useField(field, control, options = {}) {
+function useField(field, control) {
   const values = _reacthookform.useWatch.call(void 0, { control });
   const state = _react.useMemo.call(void 0, 
     () => _core.getFieldState.call(void 0, field, _nullishCoalesce(values, () => ( {}))),
@@ -11,8 +11,8 @@ function useField(field, control, options = {}) {
   const { field: f, fieldState } = _reacthookform.useController.call(void 0, {
     name: field.name,
     control,
-    rules: _nullishCoalesce(options.rules, () => ( field.rules)),
-    defaultValue: _nullishCoalesce(options.defaultValue, () => ( field.defaultValue)),
+    rules: _optionalChain([field, 'optionalAccess', _ => _.rules]),
+    defaultValue: _optionalChain([field, 'optionalAccess', _2 => _2.defaultValue]),
     disabled: state.disabled
   });
   return { field: f, fieldState, state };
@@ -35,12 +35,11 @@ function Field({
   field,
   control,
   component,
-  rules,
   ...rest
 }) {
   const contextComponents = useFieldComponents();
   const Component = _nullishCoalesce(_nullishCoalesce(component, () => ( contextComponents[field.type])), () => ( contextComponents["text"]));
-  const { field: f, fieldState, state } = useField(field, control, { rules });
+  const { field: f, fieldState, state } = useField(field, control);
   if (!state.visible) {
     return null;
   }
@@ -64,4 +63,4 @@ function Field({
 
 
 exports.useField = useField; exports.FormFieldsProvider = FormFieldsProvider; exports.useFieldComponents = useFieldComponents; exports.Field = Field;
-//# sourceMappingURL=chunk-3PMQZRSQ.cjs.map
+//# sourceMappingURL=chunk-X5G3JO5T.cjs.map
