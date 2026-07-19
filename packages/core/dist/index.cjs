@@ -39,7 +39,7 @@ function normalizeConfig(config) {
     const c = config;
     if (Array.isArray(c.fields)) {
       return {
-        validationMode: c.validationMode ?? "onSubmit",
+        validationMode: c.validationMode ?? "onTouched",
         reValidateMode: c.reValidateMode ?? "onChange",
         fields: c.fields
       };
