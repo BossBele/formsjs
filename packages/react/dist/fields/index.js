@@ -250,9 +250,10 @@ var defaultComponents = {
 import { jsx as jsx11 } from "react/jsx-runtime";
 function DefaultField({
   field,
+  control,
   ...rest
 }) {
-  return /* @__PURE__ */ jsx11(Field, { field, components: defaultComponents, ...rest });
+  return /* @__PURE__ */ jsx11(Field, { field, control, components: defaultComponents, ...rest });
 }
 export {
   CheckboxField,

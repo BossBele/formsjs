@@ -250,9 +250,10 @@ var defaultComponents = {
 
 function DefaultField({
   field,
+  control,
   ...rest
 }) {
-  return /* @__PURE__ */ _jsxruntime.jsx.call(void 0, _chunkCYMOPAGJcjs.Field, { field, components: defaultComponents, ...rest });
+  return /* @__PURE__ */ _jsxruntime.jsx.call(void 0, _chunkCYMOPAGJcjs.Field, { field, control, components: defaultComponents, ...rest });
 }
 
 
