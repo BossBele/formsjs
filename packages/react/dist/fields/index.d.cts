@@ -1,7 +1,7 @@
 import { FieldConfig, FieldState } from '@form-os/core';
-import { ControllerRenderProps, FieldError } from 'react-hook-form';
+import { ControllerRenderProps, FieldError, FieldValues } from 'react-hook-form';
 import * as react from 'react';
-import { F as FieldProps } from '../Field-Bq9-eB99.cjs';
+import { F as FieldProps } from '../Field-BZNec30e.cjs';
 
 interface FieldComponentProps {
     formField: ControllerRenderProps;
@@ -47,6 +47,6 @@ declare const defaultComponents: {
     switch: typeof SwitchField;
 };
 
-declare function DefaultField({ field, control, component, ...rest }: FieldProps): react.JSX.Element;
+declare function DefaultField<TFieldValues extends FieldValues = FieldValues>({ field, control, component, ...rest }: FieldProps<TFieldValues>): react.JSX.Element;
 
 export { CheckboxField, DateField, DefaultField, EmailField, type FieldComponentProps, NumberField, PasswordField, RadioField, SelectField, SwitchField, TextAreaField, TextField, defaultComponents };

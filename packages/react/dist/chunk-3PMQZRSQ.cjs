@@ -31,7 +31,13 @@ function useFieldComponents() {
 
 // src/Field.tsx
 
-function Field({ field, control, component, rules, ...rest }) {
+function Field({
+  field,
+  control,
+  component,
+  rules,
+  ...rest
+}) {
   const contextComponents = useFieldComponents();
   const Component = _nullishCoalesce(_nullishCoalesce(component, () => ( contextComponents[field.type])), () => ( contextComponents["text"]));
   const { field: f, fieldState, state } = useField(field, control, { rules });
@@ -58,4 +64,4 @@ function Field({ field, control, component, rules, ...rest }) {
 
 
 exports.useField = useField; exports.FormFieldsProvider = FormFieldsProvider; exports.useFieldComponents = useFieldComponents; exports.Field = Field;
-//# sourceMappingURL=chunk-CYMOPAGJ.cjs.map
+//# sourceMappingURL=chunk-3PMQZRSQ.cjs.map

@@ -3,7 +3,7 @@ import { FieldValues, UseFormReturn, RegisterOptions, Control } from 'react-hook
 export { Control, FormProvider, RegisterOptions, UseFormProps, useForm, useFormContext } from 'react-hook-form';
 import * as _form_os_core from '@form-os/core';
 import { FieldConfig, FormConfig } from '@form-os/core';
-export { a as Field, F as FieldProps } from './Field-Bq9-eB99.js';
+export { a as Field, F as FieldProps } from './Field-BZNec30e.js';
 import * as react from 'react';
 import { ComponentType, ReactNode } from 'react';
 
@@ -15,8 +15,8 @@ interface UseFieldOptions {
     rules?: RegisterOptions;
     defaultValue?: any;
 }
-declare function useField(field: FieldConfig, control: Control, options?: UseFieldOptions): {
-    field: react_hook_form.ControllerRenderProps<react_hook_form.FieldValues, string>;
+declare function useField<TFieldValues extends FieldValues = FieldValues>(field: FieldConfig, control: Control<TFieldValues>, options?: UseFieldOptions): {
+    field: react_hook_form.ControllerRenderProps<TFieldValues, react_hook_form.Path<TFieldValues>>;
     fieldState: react_hook_form.ControllerFieldState;
     state: _form_os_core.FieldState;
 };

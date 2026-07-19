@@ -31,7 +31,13 @@ function useFieldComponents() {
 
 // src/Field.tsx
 import { jsx as jsx2 } from "react/jsx-runtime";
-function Field({ field, control, component, rules, ...rest }) {
+function Field({
+  field,
+  control,
+  component,
+  rules,
+  ...rest
+}) {
   const contextComponents = useFieldComponents();
   const Component = component ?? contextComponents[field.type] ?? contextComponents["text"];
   const { field: f, fieldState, state } = useField(field, control, { rules });
@@ -58,4 +64,4 @@ export {
   useFieldComponents,
   Field
 };
-//# sourceMappingURL=chunk-N346U2SM.js.map
+//# sourceMappingURL=chunk-IHVV2WZM.js.map

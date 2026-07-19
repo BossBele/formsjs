@@ -2,7 +2,7 @@
   "name": "@form-os/formjs",
   "private": false,
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -28,7 +28,7 @@
     "build": "pnpm build:packages && pnpm build:root",
     "test": "vitest run",
     "typecheck": "pnpm --filter './packages/*' exec tsc --noEmit",
-    "publish": "pnpm -r publish --access public"
+    "release": "pnpm -r publish --access public"
   },
   "dependencies": {
     "@form-os/core": "workspace:*",

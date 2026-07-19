@@ -1,18 +1,24 @@
 import type { ComponentType } from 'react';
-import type { Control, RegisterOptions } from 'react-hook-form';
+import type { Control, FieldValues, RegisterOptions } from 'react-hook-form';
 import type { FieldConfig } from '@form-os/core';
 import { useField } from './useField';
 import { useFieldComponents } from './FormFieldsContext';
 
-export interface FieldProps {
+export interface FieldProps<TFieldValues extends FieldValues = FieldValues> {
   field: FieldConfig;
-  control: Control;
+  control: Control<TFieldValues>;
   component?: ComponentType<any>;
   rules?: RegisterOptions;
   [key: string]: any;
 }
 
-export function Field({ field, control, component, rules, ...rest }: FieldProps) {
+export function Field<TFieldValues extends FieldValues = FieldValues>({
+  field,
+  control,
+  component,
+  rules,
+  ...rest
+}: FieldProps<TFieldValues>) {
   const contextComponents = useFieldComponents();
   const Component = component ?? contextComponents[field.type] ?? contextComponents['text'];
   const { field: f, fieldState, state } = useField(field, control, { rules });

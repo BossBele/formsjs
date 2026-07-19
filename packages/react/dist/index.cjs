@@ -3,7 +3,7 @@
 
 
 
-var _chunkCYMOPAGJcjs = require('./chunk-CYMOPAGJ.cjs');
+var _chunk3PMQZRSQcjs = require('./chunk-3PMQZRSQ.cjs');
 
 // src/useFormConfig.ts
 var _react = require('react');
@@ -38,5 +38,5 @@ function useFormConfig(config) {
 
 
 
-exports.Field = _chunkCYMOPAGJcjs.Field; exports.FormFieldsProvider = _chunkCYMOPAGJcjs.FormFieldsProvider; exports.FormProvider = _reacthookform.FormProvider; exports.useField = _chunkCYMOPAGJcjs.useField; exports.useFieldComponents = _chunkCYMOPAGJcjs.useFieldComponents; exports.useForm = _reacthookform.useForm; exports.useFormConfig = useFormConfig; exports.useFormContext = _reacthookform.useFormContext;
+exports.Field = _chunk3PMQZRSQcjs.Field; exports.FormFieldsProvider = _chunk3PMQZRSQcjs.FormFieldsProvider; exports.FormProvider = _reacthookform.FormProvider; exports.useField = _chunk3PMQZRSQcjs.useField; exports.useFieldComponents = _chunk3PMQZRSQcjs.useFieldComponents; exports.useForm = _reacthookform.useForm; exports.useFormConfig = useFormConfig; exports.useFormContext = _reacthookform.useFormContext;
 //# sourceMappingURL=index.cjs.map
