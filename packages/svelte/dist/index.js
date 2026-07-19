@@ -1,6 +1,6 @@
 // src/index.ts
 function createSvelteAdapter(config, options = {}) {
-  throw new Error("@jsforms/svelte adapter is a stub and not yet implemented.");
+  throw new Error("@form-os/svelte adapter is a stub and not yet implemented.");
 }
 export {
   createSvelteAdapter

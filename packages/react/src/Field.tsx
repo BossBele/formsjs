@@ -7,7 +7,7 @@ import {
   coercePattern,
   getDefaultValue,
   type FieldConfig,
-} from '@jsforms/core';
+} from '@form-os/core';
 
 export interface FieldProps {
   field: FieldConfig;

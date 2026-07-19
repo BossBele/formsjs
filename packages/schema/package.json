@@ -1,5 +1,5 @@
 {
-  "name": "@jsforms/schema",
+  "name": "@form-os/schema",
   "version": "0.1.0",
   "type": "module",
   "sideEffects": false,

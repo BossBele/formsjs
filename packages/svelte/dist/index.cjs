@@ -24,7 +24,7 @@ __export(index_exports, {
 });
 module.exports = __toCommonJS(index_exports);
 function createSvelteAdapter(config, options = {}) {
-  throw new Error("@jsforms/svelte adapter is a stub and not yet implemented.");
+  throw new Error("@form-os/svelte adapter is a stub and not yet implemented.");
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

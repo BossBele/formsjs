@@ -1,6 +1,6 @@
 import {
   Field
-} from "./chunk-PZAGB4I4.js";
+} from "./chunk-VKZXT5R7.js";
 
 // src/useFormConfig.ts
 import { useMemo } from "react";
@@ -9,7 +9,7 @@ import {
   normalizeConfig,
   createDefaultValues,
   getFieldState
-} from "@jsforms/core";
+} from "@form-os/core";
 function useFormConfig(config, options = {}) {
   const { components, resolver, ...formOptions } = options;
   const normalized = useMemo(() => normalizeConfig(config), [config]);

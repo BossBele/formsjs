@@ -1,6 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true});
 
-var _chunkDIEL6H2Dcjs = require('./chunk-DIEL6H2D.cjs');
+var _chunkDNROQDKEcjs = require('./chunk-DNROQDKE.cjs');
 
 // src/useFormConfig.ts
 var _react = require('react');
@@ -9,7 +9,7 @@ var _reacthookform = require('react-hook-form');
 
 
 
-var _core = require('@jsforms/core');
+var _core = require('@form-os/core');
 function useFormConfig(config, options = {}) {
   const { components, resolver, ...formOptions } = options;
   const normalized = _react.useMemo.call(void 0, () => _core.normalizeConfig.call(void 0, config), [config]);
@@ -40,5 +40,5 @@ function useFormConfig(config, options = {}) {
 
 
 
-exports.Field = _chunkDIEL6H2Dcjs.Field; exports.FormProvider = _reacthookform.FormProvider; exports.useFormConfig = useFormConfig; exports.useFormContext = _reacthookform.useFormContext;
+exports.Field = _chunkDNROQDKEcjs.Field; exports.FormProvider = _reacthookform.FormProvider; exports.useFormConfig = useFormConfig; exports.useFormContext = _reacthookform.useFormContext;
 //# sourceMappingURL=index.cjs.map

@@ -1,5 +1,5 @@
 {
-  "name": "@jsforms/react",
+  "name": "@form-os/react",
   "version": "0.1.0",
   "type": "module",
   "sideEffects": false,
@@ -33,7 +33,7 @@
     "react-hook-form": ">=7.0.0"
   },
   "dependencies": {
-    "@jsforms/core": "workspace:*"
+    "@form-os/core": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",

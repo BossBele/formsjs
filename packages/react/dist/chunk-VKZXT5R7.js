@@ -6,7 +6,7 @@ import {
   getValidationRules,
   coercePattern,
   getDefaultValue
-} from "@jsforms/core";
+} from "@form-os/core";
 import { jsx } from "react/jsx-runtime";
 function Field({ field, components, ...rest }) {
   const ctx = useFormContext();
@@ -64,4 +64,4 @@ function Field({ field, components, ...rest }) {
 export {
   Field
 };
-//# sourceMappingURL=chunk-PZAGB4I4.js.map
+//# sourceMappingURL=chunk-VKZXT5R7.js.map

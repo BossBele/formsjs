@@ -49,7 +49,7 @@ importers:
 
   packages/react:
     dependencies:
-      "@jsforms/core":
+      "@form-os/core":
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -86,7 +86,7 @@ importers:
 
   packages/svelte:
     dependencies:
-      "@jsforms/core":
+      "@form-os/core":
         specifier: workspace:*
         version: link:../core
     devDependencies:

@@ -6,7 +6,7 @@ var _reacthookform = require('react-hook-form');
 
 
 
-var _core = require('@jsforms/core');
+var _core = require('@form-os/core');
 var _jsxruntime = require('react/jsx-runtime');
 function Field({ field, components, ...rest }) {
   const ctx = _reacthookform.useFormContext.call(void 0, );
@@ -64,4 +64,4 @@ function Field({ field, components, ...rest }) {
 
 
 exports.Field = Field;
-//# sourceMappingURL=chunk-DIEL6H2D.cjs.map
+//# sourceMappingURL=chunk-DNROQDKE.cjs.map

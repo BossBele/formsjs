@@ -1,7 +1,7 @@
-import { FieldConfig, FieldState } from '@jsforms/core';
+import { FieldConfig, FieldState } from '@form-os/core';
 import { ControllerRenderProps, FieldError } from 'react-hook-form';
 import * as react from 'react';
-import { F as FieldProps } from '../Field-pDurpCIr.cjs';
+import { F as FieldProps } from '../Field-sU_rS-Rv.cjs';
 
 interface FieldComponentProps {
     formField: ControllerRenderProps;

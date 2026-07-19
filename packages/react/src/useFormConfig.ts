@@ -7,7 +7,7 @@ import {
   getFieldState,
   type FieldConfig,
   type FormConfig,
-} from '@jsforms/core';
+} from '@form-os/core';
 
 export interface UseFormConfigOptions {
   components?: Record<string, ComponentType<any>>;

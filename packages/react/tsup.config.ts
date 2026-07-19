@@ -7,5 +7,5 @@ export default defineConfig({
   splitting: true,
   sourcemap: true,
   clean: true,
-  external: ['react', 'react-dom', 'react-hook-form', '@jsforms/core'],
+  external: ['react', 'react-dom', 'react-hook-form', '@form-os/core'],
 });

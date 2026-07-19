@@ -27,9 +27,9 @@ module.exports = __toCommonJS(index_exports);
 // src/form-config.schema.json
 var form_config_schema_default = {
   $schema: "http://json-schema.org/draft-07/schema#",
-  $id: "https://jsforms.dev/form-config.schema.json",
-  title: "JSForms Form Config",
-  description: "Schema for a JSForms form configuration.",
+  $id: "https://form-os.dev/form-config.schema.json",
+  title: "Form OS Form Config",
+  description: "Schema for a Form OS form configuration.",
   type: "object",
   required: [
     "fields"

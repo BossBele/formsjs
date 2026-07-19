@@ -1,6 +1,6 @@
 import * as react from 'react';
 import { ComponentType } from 'react';
-import { FieldConfig } from '@jsforms/core';
+import { FieldConfig } from '@form-os/core';
 
 interface FieldProps {
     field: FieldConfig;

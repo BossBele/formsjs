@@ -1,7 +1,7 @@
 var $schema = "http://json-schema.org/draft-07/schema#";
-var $id = "https://jsforms.dev/form-config.schema.json";
-var title = "JSForms Form Config";
-var description = "Schema for a JSForms form configuration.";
+var $id = "https://form-os.dev/form-config.schema.json";
+var title = "Form OS Form Config";
+var description = "Schema for a Form OS form configuration.";
 var type = "object";
 var required = [
 	"fields"

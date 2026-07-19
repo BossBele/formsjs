@@ -1,9 +1,9 @@
 import * as react_hook_form from 'react-hook-form';
 export { FormProvider, useFormContext } from 'react-hook-form';
-import * as _jsforms_core from '@jsforms/core';
-import { FieldConfig, FormConfig } from '@jsforms/core';
+import * as _form_os_core from '@form-os/core';
+import { FieldConfig, FormConfig } from '@form-os/core';
 import { ComponentType } from 'react';
-export { a as Field, F as FieldProps } from './Field-pDurpCIr.cjs';
+export { a as Field, F as FieldProps } from './Field-sU_rS-Rv.cjs';
 
 interface UseFormConfigOptions {
     components?: Record<string, ComponentType<any>>;
@@ -14,7 +14,7 @@ declare function useFormConfig(config: FieldConfig[] | FormConfig, options?: Use
     fields: FieldConfig[];
     fieldStates: {
         field: FieldConfig;
-        state: _jsforms_core.FieldState;
+        state: _form_os_core.FieldState;
     }[];
     components: Record<string, ComponentType<any>> | undefined;
     watch: react_hook_form.UseFormWatch<Record<string, any>>;

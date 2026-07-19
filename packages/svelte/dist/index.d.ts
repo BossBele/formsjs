@@ -1,4 +1,4 @@
-import { FieldConfig, FormConfig } from '@jsforms/core';
+import { FieldConfig, FormConfig } from '@form-os/core';
 
 interface SvelteAdapterOptions {
     components?: Record<string, unknown>;

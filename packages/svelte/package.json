@@ -1,5 +1,5 @@
 {
-  "name": "@jsforms/svelte",
+  "name": "@form-os/svelte",
   "version": "0.1.0",
   "type": "module",
   "sideEffects": false,
@@ -23,7 +23,7 @@
     "build": "tsup"
   },
   "dependencies": {
-    "@jsforms/core": "workspace:*"
+    "@form-os/core": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.0.2",
