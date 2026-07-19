@@ -1,8 +1,11 @@
+interface FieldTypeMap {
+}
+type FieldType = keyof FieldTypeMap extends never ? string : keyof FieldTypeMap | (string & {});
 interface Choice {
     label: string;
     value: string;
 }
-type DependencyType = 'hidden' | 'show' | 'required' | 'disabled';
+type DependencyType = 'hidden' | 'show' | 'required' | 'disabled' | 'readonly';
 interface Dependency {
     name: string;
     value: any;
@@ -15,10 +18,12 @@ interface ValidationRules {
     minLength?: number;
     maxLength?: number;
     pattern?: string | RegExp;
+    disabled?: boolean;
+    readonly?: boolean;
 }
 interface FieldConfig {
     name: string;
-    type: string;
+    type: FieldType;
     label?: string;
     description?: string;
     placeholder?: string;
@@ -38,8 +43,8 @@ interface FieldState {
     visible: boolean;
     required: boolean;
     disabled: boolean;
-    defaultValue: any;
     readonly: boolean;
+    defaultValue: any;
 }
 type FieldRegistry<T> = Record<string, T>;
 
@@ -54,4 +59,4 @@ declare function createFieldRegistry<T>(defaults: FieldRegistry<T>, overrides?: 
 declare function getValidationRules(field: FieldConfig): ValidationRules;
 declare function coercePattern(pattern?: string | RegExp): RegExp | undefined;
 
-export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FieldRegistry, type FieldState, type FormConfig, type ValidationRules, coercePattern, createDefaultValues, createFieldRegistry, getDefaultValue, getFieldState, getValidationRules, normalizeConfig };
+export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FieldRegistry, type FieldState, type FieldType, type FieldTypeMap, type FormConfig, type ValidationRules, coercePattern, createDefaultValues, createFieldRegistry, getDefaultValue, getFieldState, getValidationRules, normalizeConfig };

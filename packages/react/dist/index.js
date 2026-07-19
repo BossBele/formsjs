@@ -1,43 +1,35 @@
 import {
-  Field
-} from "./chunk-VKZXT5R7.js";
+  Field,
+  FormFieldsProvider,
+  useField,
+  useFieldComponents
+} from "./chunk-N346U2SM.js";
 
 // src/useFormConfig.ts
 import { useMemo } from "react";
 import { useForm } from "react-hook-form";
-import {
-  normalizeConfig,
-  createDefaultValues,
-  getFieldState
-} from "@form-os/core";
-function useFormConfig(config, options = {}) {
-  const { components, resolver, ...formOptions } = options;
+import { normalizeConfig } from "@form-os/core";
+function useFormConfig(config) {
   const normalized = useMemo(() => normalizeConfig(config), [config]);
   const defaultValues = useMemo(
-    () => createDefaultValues(normalized.fields),
+    () => Object.fromEntries(
+      normalized.fields.filter((f) => f.defaultValue !== void 0).map((f) => [f.name, f.defaultValue])
+    ),
     [normalized.fields]
   );
-  const form = useForm({
-    defaultValues,
-    resolver,
-    ...formOptions
-  });
-  const values = form.watch();
-  const fieldStates = useMemo(() => {
-    const watched = values;
-    return normalized.fields.map((field) => ({
-      field,
-      state: getFieldState(field, watched)
-    }));
-  }, [normalized.fields, values]);
-  return { ...form, fields: normalized.fields, fieldStates, components };
+  const form = useForm({ defaultValues });
+  return { ...form, fields: normalized.fields };
 }
 
 // src/index.ts
-import { FormProvider, useFormContext } from "react-hook-form";
+import { FormProvider, useFormContext, useForm as useForm2 } from "react-hook-form";
 export {
   Field,
+  FormFieldsProvider,
   FormProvider,
+  useField,
+  useFieldComponents,
+  useForm2 as useForm,
   useFormConfig,
   useFormContext
 };

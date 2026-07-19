@@ -96,11 +96,15 @@ function getFieldState(field, values) {
   if (hasType(dependencies, "required")) {
     required = allOfTypeMatch(dependencies, "required", values);
   }
-  let disabled = false;
+  let disabled = field.rules?.disabled ?? false;
   if (hasType(dependencies, "disabled")) {
     disabled = allOfTypeMatch(dependencies, "disabled", values);
   }
-  return { visible, required, disabled, defaultValue: getDefaultValue(field) };
+  let readonly = field.rules?.readonly ?? false;
+  if (hasType(dependencies, "readonly")) {
+    readonly = allOfTypeMatch(dependencies, "readonly", values);
+  }
+  return { visible, required, disabled, readonly, defaultValue: getDefaultValue(field) };
 }
 
 // src/registry.ts

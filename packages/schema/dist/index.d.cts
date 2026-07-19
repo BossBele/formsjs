@@ -58,7 +58,8 @@ var $defs = {
 					"hidden",
 					"show",
 					"required",
-					"disabled"
+					"disabled",
+					"readonly"
 				]
 			}
 		},
@@ -87,6 +88,12 @@ var $defs = {
 			},
 			pattern: {
 				type: "string"
+			},
+			disabled: {
+				type: "boolean"
+			},
+			readonly: {
+				type: "boolean"
 			}
 		},
 		additionalProperties: false

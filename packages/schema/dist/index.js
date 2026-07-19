@@ -59,7 +59,8 @@ var form_config_schema_default = {
             "hidden",
             "show",
             "required",
-            "disabled"
+            "disabled",
+            "readonly"
           ]
         }
       },
@@ -88,6 +89,12 @@ var form_config_schema_default = {
         },
         pattern: {
           type: "string"
+        },
+        disabled: {
+          type: "boolean"
+        },
+        readonly: {
+          type: "boolean"
         }
       },
       additionalProperties: false
