@@ -7,6 +7,8 @@ var _chunkCYMOPAGJcjs = require('./chunk-CYMOPAGJ.cjs');
 
 // src/useFormConfig.ts
 var _react = require('react');
+
+
 var _reacthookform = require('react-hook-form');
 var _core = require('@form-os/core');
 function useFormConfig(config) {

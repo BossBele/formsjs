@@ -7,7 +7,9 @@ import {
 
 // src/useFormConfig.ts
 import { useMemo } from "react";
-import { useForm } from "react-hook-form";
+import {
+  useForm
+} from "react-hook-form";
 import { normalizeConfig } from "@form-os/core";
 function useFormConfig(config) {
   const normalized = useMemo(() => normalizeConfig(config), [config]);
