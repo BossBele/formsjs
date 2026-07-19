@@ -35,14 +35,21 @@ var form_config_schema_default = {
     "fields"
   ],
   properties: {
-    id: {
-      type: "string"
+    validationMode: {
+      enum: [
+        "onChange",
+        "onBlur",
+        "onSubmit",
+        "onTouched",
+        "all"
+      ]
     },
-    title: {
-      type: "string"
-    },
-    submitLabel: {
-      type: "string"
+    reValidateMode: {
+      enum: [
+        "onChange",
+        "onBlur",
+        "onSubmit"
+      ]
     },
     fields: {
       type: "array",

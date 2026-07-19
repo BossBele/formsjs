@@ -17,7 +17,11 @@ function useFormConfig(config) {
     ),
     [normalized.fields]
   );
-  const form = useForm({ defaultValues });
+  const form = useForm({
+    defaultValues,
+    mode: normalized.validationMode,
+    reValidateMode: normalized.reValidateMode
+  });
   return { ...form, fields: normalized.fields };
 }
 

@@ -17,7 +17,11 @@ function useFormConfig(config) {
     ),
     [normalized.fields]
   );
-  const form = _reacthookform.useForm.call(void 0, { defaultValues });
+  const form = _reacthookform.useForm.call(void 0, {
+    defaultValues,
+    mode: normalized.validationMode,
+    reValidateMode: normalized.reValidateMode
+  });
   return { ...form, fields: normalized.fields };
 }
 

@@ -7,9 +7,8 @@ function normalizeConfig(config) {
     const c = config;
     if (Array.isArray(c.fields)) {
       return {
-        id: c.id,
-        title: c.title,
-        submitLabel: c.submitLabel,
+        validationMode: c.validationMode ?? "onSubmit",
+        reValidateMode: c.reValidateMode ?? "onChange",
         fields: c.fields
       };
     }

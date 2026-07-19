@@ -28,6 +28,9 @@ export interface ValidationRules {
   readonly?: boolean;
 }
 
+export type ValidationMode = 'onChange' | 'onBlur' | 'onSubmit' | 'onTouched' | 'all';
+export type ReValidationMode = 'onChange' | 'onBlur' | 'onSubmit';
+
 export interface FieldConfig {
   name: string;
   type: FieldType;
@@ -42,9 +45,8 @@ export interface FieldConfig {
 }
 
 export interface FormConfig {
-  id?: string;
-  title?: string;
-  submitLabel?: string;
+  validationMode?: ValidationMode;
+  reValidateMode?: ReValidationMode;
   fields: FieldConfig[];
 }
 

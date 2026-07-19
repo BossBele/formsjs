@@ -21,6 +21,8 @@ interface ValidationRules {
     disabled?: boolean;
     readonly?: boolean;
 }
+type ValidationMode = 'onChange' | 'onBlur' | 'onSubmit' | 'onTouched' | 'all';
+type ReValidationMode = 'onChange' | 'onBlur' | 'onSubmit';
 interface FieldConfig {
     name: string;
     type: FieldType;
@@ -34,9 +36,8 @@ interface FieldConfig {
     props?: Record<string, any>;
 }
 interface FormConfig {
-    id?: string;
-    title?: string;
-    submitLabel?: string;
+    validationMode?: ValidationMode;
+    reValidateMode?: ReValidationMode;
     fields: FieldConfig[];
 }
 interface FieldState {
@@ -59,4 +60,4 @@ declare function createFieldRegistry<T>(defaults: FieldRegistry<T>, overrides?: 
 declare function getValidationRules(field: FieldConfig): ValidationRules;
 declare function coercePattern(pattern?: string | RegExp): RegExp | undefined;
 
-export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FieldRegistry, type FieldState, type FieldType, type FieldTypeMap, type FormConfig, type ValidationRules, coercePattern, createDefaultValues, createFieldRegistry, getDefaultValue, getFieldState, getValidationRules, normalizeConfig };
+export { type Choice, type Dependency, type DependencyType, type FieldConfig, type FieldRegistry, type FieldState, type FieldType, type FieldTypeMap, type FormConfig, type ReValidationMode, type ValidationMode, type ValidationRules, coercePattern, createDefaultValues, createFieldRegistry, getDefaultValue, getFieldState, getValidationRules, normalizeConfig };

@@ -10,9 +10,8 @@ export function normalizeConfig(
     const c = config as Partial<FormConfig>;
     if (Array.isArray(c.fields)) {
       return {
-        id: c.id,
-        title: c.title,
-        submitLabel: c.submitLabel,
+        validationMode: c.validationMode ?? 'onSubmit',
+        reValidateMode: c.reValidateMode ?? 'onChange',
         fields: c.fields,
       };
     }
